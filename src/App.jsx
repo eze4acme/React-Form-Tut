@@ -1,35 +1,39 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+function handleSubmit(e) {
+  e.preventDefault()
+  console.log('submitted');
+  console.log(e);
+}
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      <form action="#" onSubmit={handleSubmit}>
+        <div className="form-control">
+          <label htmlFor="firstname">Name : </label>
+          <input type="text" id="firstname" name="firstname" />
+        </div>
+        <div className="form-control" style={{ marginTop: "20px" }}>
+          <label htmlFor="email">Email : </label>
+          <input type="text" id="email" name="email" />
+        </div>
+        <button
+          type="submit"
+          onClick={handleSubmit}
+          style={{
+            backgroundColor: "red",
+            padding: "5px 10px",
+            marginTop: "8px",
+          }}
+        >
+          Add Person
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      </form>
     </>
-  )
+  );
 }
 
 export default App
