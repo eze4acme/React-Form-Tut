@@ -8,12 +8,15 @@ function App() {
 function handleSubmit(e) {
   e.preventDefault()
   if (firstname && email) {
-    const person = {firstname, email}
-    setPeople(people =>{
-      return [...people, person]
+    const person = {id: new Date().getTime().toString(), firstname, email}
+    console.log(person);
+    setPeople(oldPeople =>{
+      return [...oldPeople, person]
     });
     // console.log(person);
-    console.log(people);
+    // console.log(people);
+  }else{
+    console.log('input is empty!!');
   }
   setFirstname('')
   setEmail('')
@@ -53,8 +56,17 @@ function handleSubmit(e) {
           Add Person
         </button>
       </form>
+      {
+        people.map((person )=> {
+          const {id, firstname, email} = person
+          return <div key={id}>
+                <h1>{firstname}</h1>
+                <h1>{email}</h1>
+          </div>
+        })
+      }
     </>
-  );
+  )
 }
 
 export default App
