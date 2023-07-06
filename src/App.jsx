@@ -3,14 +3,17 @@ import './App.css'
 
 function App() {
   const reducer = (state, action) =>{
-    console.log('');
+   
+  }
+  const defaultState = {
+    
   }
   // const [firstname, setFirstname] = useState('')
   // const [email, setEmail] = useState('')
   const [people, setPeople] = useState({})
   const divContainer = useRef({first:'name'})
   const refContainer = useRef({first:'name'})
-  const [state, dispatch] = useReducer(reducer);
+  const [state, dispatch] = useReducer(reducer,);
   // console.log(me);
 // const ob = {id: 'me,', love: 'me2'}
 // console.log({...ob});
