@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   const reducer = (state, action) =>{
-    console.log('hello');
+    console.log('');
   }
   // const [firstname, setFirstname] = useState('')
   // const [email, setEmail] = useState('')
