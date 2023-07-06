@@ -4,15 +4,24 @@ import './App.css'
 function App() {
   // const [firstname, setFirstname] = useState('')
   // const [email, setEmail] = useState('')
-  const [people, setPeople] = useState([])
+  const [people, setPeople] = useState({})
+// const ob = {id: 'me,', love: 'me2'}
+// console.log({...ob});
+ const {firstname, email } = people;
+ const id = new Date().getTime().toString();
+// console.log(new Date().getTime().toString());
 function handleSubmit(e) {
-  console.log(e);
+  // console.log(e);
   e.preventDefault()
   const form = new FormData(e.currentTarget)
-  console.log(form);
+  // console.log(form);
   const entries = [...form.values()];
-  console.log(entries.flat());
- 
+  const objData = Object.fromEntries(form)
+  // console.log([...objData]);
+  setPeople({id,...objData})
+  // console.log(objData );
+ console.log(people);
+
 }
   return (
     <>
@@ -49,15 +58,10 @@ function handleSubmit(e) {
           Add Person
         </button>
       </form>
-      {/* {
-        people.map((person )=> {
-          const {id, firstname, email} = person
-          return <div key={id}>
-                <h1>{firstname}</h1>
-                <h1>{email}</h1>
+          <div>
+            <h1>{firstname}</h1>
+            <h1>{email}</h1>
           </div>
-        })
-      } */}
     </>
   )
 }
