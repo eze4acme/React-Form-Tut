@@ -20,7 +20,8 @@ function handleSubmit(e) {
   // console.log([...objData]);
   setPeople({id,...objData})
   // console.log(objData );
- console.log(people);
+  const me = Object.entries(people);
+ console.log(me);
 
 }
   return (
@@ -58,10 +59,9 @@ function handleSubmit(e) {
           Add Person
         </button>
       </form>
-          <div>
-            <h1>{firstname}</h1>
-            <h1>{email}</h1>
-          </div>
+          {
+
+          }
     </>
   )
 }
