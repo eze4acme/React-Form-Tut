@@ -2,24 +2,17 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [firstname, setFirstname] = useState('')
-  const [email, setEmail] = useState('')
+  // const [firstname, setFirstname] = useState('')
+  // const [email, setEmail] = useState('')
   const [people, setPeople] = useState([])
 function handleSubmit(e) {
+  console.log(e);
   e.preventDefault()
-  if (firstname && email) {
-    const person = {id: new Date().getTime().toString(), firstname, email}
-    console.log(person);
-    setPeople(oldPeople =>{
-      return [...oldPeople, person]
-    });
-    // console.log(person);
-    // console.log(people);
-  }else{
-    console.log('input is empty!!');
-  }
-  setFirstname('')
-  setEmail('')
+  const form = new FormData(e.currentTarget)
+  console.log(form);
+  const entries = [...form.values()];
+  console.log(entries.flat());
+ 
 }
   return (
     <>
@@ -30,8 +23,8 @@ function handleSubmit(e) {
             type="text"
             id="firstname"
             name="firstname"
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
+            // value={firstname}
+            // onChange={(e) => setFirstname(e.target.value)}
           />
         </div>
         <div className="form-control" style={{ marginTop: "20px" }}>
@@ -40,13 +33,13 @@ function handleSubmit(e) {
             type="text"
             id="email"
             name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            // value={email}
+            // onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <button
           type="submit"
-          onClick={handleSubmit}
+          // onClick={handleSubmit}
           style={{
             backgroundColor: "red",
             padding: "5px 10px",
@@ -56,7 +49,7 @@ function handleSubmit(e) {
           Add Person
         </button>
       </form>
-      {
+      {/* {
         people.map((person )=> {
           const {id, firstname, email} = person
           return <div key={id}>
@@ -64,7 +57,7 @@ function handleSubmit(e) {
                 <h1>{email}</h1>
           </div>
         })
-      }
+      } */}
     </>
   )
 }
