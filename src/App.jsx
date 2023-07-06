@@ -1,12 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useReducer } from 'react'
 import './App.css'
 
 function App() {
+  const reducer = (state, action) =>{
+    console.log('hello');
+  }
   // const [firstname, setFirstname] = useState('')
   // const [email, setEmail] = useState('')
   const [people, setPeople] = useState({})
   const divContainer = useRef({first:'name'})
   const refContainer = useRef({first:'name'})
+  const [state, dispatch] = useReducer(reducer);
+  // console.log(me);
 // const ob = {id: 'me,', love: 'me2'}
 // console.log({...ob});
  const {firstname, email } = people;
@@ -28,7 +33,7 @@ function handleSubmit(e) {
   // console.log(objData );
   const me = Object.entries(people);
   console.log(divContainer.current.style.color = 'red');
-  console.log(refContainer.current);
+  console.log(refContainer.current.value);
 }
   return (
     <>
