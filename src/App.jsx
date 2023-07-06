@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 function App() {
   // const [firstname, setFirstname] = useState('')
   // const [email, setEmail] = useState('')
   const [people, setPeople] = useState({})
+  const divContainer = useRef({first:'name'})
+  const refContainer = useRef({first:'name'})
 // const ob = {id: 'me,', love: 'me2'}
 // console.log({...ob});
  const {firstname, email } = people;
  const id = new Date().getTime().toString();
+ useEffect(() => {
+   console.log(refContainer.current);
+   return refContainer.current.focus();
+ });
 // console.log(new Date().getTime().toString());
 function handleSubmit(e) {
   // console.log(e);
@@ -21,8 +27,8 @@ function handleSubmit(e) {
   setPeople({id,...objData})
   // console.log(objData );
   const me = Object.entries(people);
- console.log(me);
-
+  console.log(divContainer.current.style.color = 'red');
+  console.log(refContainer.current);
 }
   return (
     <>
@@ -30,6 +36,7 @@ function handleSubmit(e) {
         <div className="form-control">
           <label htmlFor="firstname">Name : </label>
           <input
+          ref={refContainer}
             type="text"
             id="firstname"
             name="firstname"
@@ -59,9 +66,9 @@ function handleSubmit(e) {
           Add Person
         </button>
       </form>
-          {
-
-          }
+        <div ref={divContainer}>
+          Hello world
+        </div>
     </>
   )
 }
