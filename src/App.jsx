@@ -3,7 +3,7 @@ import './App.css'
 
 function App() {
   const reducer = (state, action) =>{
-   
+   console.log('hi');
   }
   const defaultState = {
     
