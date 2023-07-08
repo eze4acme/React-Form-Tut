@@ -25,7 +25,7 @@ const books = [
     year: 1997,
   },
 ];
-  const text = 'the'
+  const text = 'kill'
   const filter = books.filter((ele) => {
  return  ele.title.toLowerCase().includes(text)
   });
