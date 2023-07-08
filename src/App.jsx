@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 const books = [
   {
     title: "The Alchemist",
@@ -25,23 +25,32 @@ const books = [
     year: 1997,
   },
 ];
-  const text = 'kill'
-  const filter = books.filter((ele) => {
- return  ele.title.toLowerCase().includes(text)
-  });
-console.log(filter);
-console.log(books[0].includes('kill'));
+  
 
 
 function App() {
-
+const defaultState = {
+  data:books,
+}
+ const reducer = () => {} 
+  const [state, dispatch] = useReducer(reducer, defaultState)
+  console.log(state.data);
+  const text = "kill";
+  const filtered = state.data.filter((ele) => {
+    const newEle = {...ele, id: new Date().getTime().toString() };
+    console.log(newEle);
+    return newEle.title.toLowerCase().includes(text);
+    
+  });
+// console.log(filtered);
   return (
     <div>
       {
-        filter.map(ele =>{
-          const {title, author, genre, year} = ele
+        filtered.map(ele =>{
+          console.log(ele);
+          const {id, title, author, genre, year} = ele
           return (
-            <div>
+            <div key={id}>
               <h1>{title}</h1>
               <h3>{author}</h3>
               <p>{genre}</p>
