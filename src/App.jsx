@@ -30,6 +30,9 @@ const books = [
  return  ele.title.toLowerCase().includes(text)
   });
 console.log(filter);
+console.log(books[0].includes('kill'));
+
+
 function App() {
 
   return (
