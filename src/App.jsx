@@ -32,7 +32,7 @@ function App() {
 const defaultState = {
   data:books,
 }
- const reducer = () => {} 
+ const reducer = (state, action) => {} 
   const [state, dispatch] = useReducer(reducer, defaultState)
   console.log(state.data);
   const text = "kill";
