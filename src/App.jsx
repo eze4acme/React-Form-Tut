@@ -31,6 +31,7 @@ const books = [
 function App() {
 const defaultState = {
   data:books,
+  isLoading:true,
 }
  const reducer = (state, action) => {} 
   const [state, dispatch] = useReducer(reducer, defaultState)
@@ -42,7 +43,7 @@ const defaultState = {
     return newEle.title.toLowerCase().includes(text);
     
   });
-// console.log(filtered);
+
   return (
     <div>
       {
